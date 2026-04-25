@@ -1,7 +1,6 @@
 const PASSWORD = "02.12.25";
 const STORAGE_KEY = "love-site-authenticated";
 const STORY_KEY = "love-site-story-finished";
-const ENABLE_FIREBASE_LOGS = false;
 const FIREBASE_CONFIG = {
   apiKey: "AIzaSyBLahq16OjPRjOCaA8_JsxwWOW69PpTBuM",
   authDomain: "azra-site-log.firebaseapp.com",
@@ -94,7 +93,7 @@ let diceTimers = [];
 let loveCodeBuilt = false;
 let loveCodeTimers = [];
 let lastNoButtonMove = 0;
-let firebaseAppPromise = null;
+let firebaseLoggerPromise = null;
 
 function isSmallScreen() {
   return window.innerWidth <= 760;
@@ -112,15 +111,11 @@ function redirectToLogin() {
   window.location.href = "index.html";
 }
 
-function getFirebaseApp() {
-  if (!ENABLE_FIREBASE_LOGS) {
-    return Promise.resolve(null);
-  }
-
-  if (!firebaseAppPromise) {
-    firebaseAppPromise = Promise.all([
+function getFirebaseLogger() {
+  if (!firebaseLoggerPromise) {
+    firebaseLoggerPromise = Promise.all([
       import("https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js"),
-      import("https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js")
+      import("https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore-lite.js")
     ]).then(([appModule, firestoreModule]) => {
       const app = appModule.initializeApp(FIREBASE_CONFIG);
       const db = firestoreModule.getFirestore(app);
@@ -129,50 +124,32 @@ function getFirebaseApp() {
     });
   }
 
-  return firebaseAppPromise;
+  return firebaseLoggerPromise;
 }
 
-function getVisitPayload(eventName) {
+function buildVisitPayload(eventName) {
   return {
     event: eventName,
     page: document.body.dataset.page || "unknown",
-    createdAtClient: new Date().toISOString(),
-    userAgent: navigator.userAgent,
+    enteredAt: new Date().toISOString(),
+    userAgent: navigator.userAgent || "",
     language: navigator.language || "",
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
-    screen: window.screen ? `${window.screen.width}x${window.screen.height}` : "",
-    sitePath: window.location.pathname
+    domain: window.location.hostname || "",
+    path: window.location.pathname || "",
+    screen: window.screen ? `${window.screen.width}x${window.screen.height}` : ""
   };
 }
 
-async function logSiteVisit(eventName) {
-  if (!ENABLE_FIREBASE_LOGS) {
-    return;
-  }
-
+async function logVisit(eventName) {
   try {
-    const { db, firestoreModule } = await getFirebaseApp();
-
-    if (!db || !firestoreModule) {
-      return;
-    }
-
-    await firestoreModule.addDoc(firestoreModule.collection(db, "visits"), {
-      ...getVisitPayload(eventName),
-      createdAt: firestoreModule.serverTimestamp()
-    });
+    const { db, firestoreModule } = await getFirebaseLogger();
+    await firestoreModule.addDoc(
+      firestoreModule.collection(db, "visits"),
+      buildVisitPayload(eventName)
+    );
   } catch (error) {
-    console.warn("Firebase log kaydi atilamadi:", error);
+    console.warn("Log kaydi atilamadi:", error);
   }
-}
-
-function logSiteVisitWithTimeout(eventName, timeout = 900) {
-  return Promise.race([
-    logSiteVisit(eventName),
-    new Promise((resolve) => {
-      window.setTimeout(resolve, timeout);
-    })
-  ]);
 }
 
 function typeText(element, text, speed = 32) {
@@ -804,7 +781,7 @@ if (loginForm) {
     });
   }
 
-  loginForm.addEventListener("submit", async (event) => {
+  loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(loginForm);
     const password = String(formData.get("password") || "").trim();
@@ -814,7 +791,7 @@ if (loginForm) {
       localStorage.removeItem(STORY_KEY);
       message.textContent = "Sifre dogru. giris yapiliyor...";
       message.className = "feedback success";
-      await logSiteVisitWithTimeout("password_success");
+      logVisit("password_success");
       window.setTimeout(redirectToHome, 600);
       return;
     }
@@ -879,9 +856,9 @@ if (document.body.dataset.page === "memories") {
     redirectToHome();
   }
 
-  if (sessionStorage.getItem("memories-opened-logged") !== "true") {
-    sessionStorage.setItem("memories-opened-logged", "true");
-    logSiteVisit("memories_opened");
+  if (sessionStorage.getItem("memories-log-sent") !== "true") {
+    sessionStorage.setItem("memories-log-sent", "true");
+    logVisit("memories_opened");
   }
 
   if (loveMeterButton) {
