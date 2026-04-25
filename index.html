@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bu Site Azra'ya Özel Yapılmıştır</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login">
+  <main class="game-screen">
+    <section class="login-panel pixel-card">
+      <p class="pixel-kicker">Ozel Giris</p>
+      <h1>Bu Site Azra'ya Özel Yapılmıştır</h1>
+      <p class="pixel-text">
+        Burasi sadece ikimize ait. Şifreyi gir ve sana hazırladığım sürprizi aç (Şifre Çıkmaya Başladığımız Tarih) (GG.AY.YL).
+      </p>
+
+      <form id="loginForm" class="pixel-form">
+        <label for="password">Sifre</label>
+        <div class="password-row">
+          <input id="password" name="password" type="password" placeholder="Sifreyi gir" required>
+          <button id="togglePasswordButton" type="button" class="toggle-password-button">Goster</button>
+        </div>
+        <button type="submit" class="pixel-button">Kapıyı Ac</button>
+        <p id="message" class="feedback" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

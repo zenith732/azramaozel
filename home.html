@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bir Mesajin Var</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <audio id="siteMusic" loop preload="metadata">
+    <source src="assets/site-music.mp4" type="audio/mp4">
+  </audio>
+  <button id="musicToggleButton" class="music-toggle" type="button">Muzigi Cal</button>
+  <main class="game-screen story-screen">
+    <section id="startScene" class="start-scene">
+      <div class="letter-box pixel-card">
+        <div class="seal"></div>
+      </div>
+      <button id="openLetterButton" class="message-button" type="button">SANA BIR MESAJIM VAR...</button>
+    </section>
+
+    <section id="dialogScene" class="dialog-scene hidden">
+      <div class="dialog-box pixel-card">
+        <div class="portrait-frame">
+          <img class="portrait-photo" src="assets/player-photo-small.jpg" alt="Oyuncu fotografi">
+        </div>
+
+        <div class="dialog-content">
+          <div class="dialog-topline">
+            <h2>OYUNCU</h2>
+            <div class="hearts" aria-label="Kalp seviyesi">
+              <span>&#10084;</span><span>&#10084;</span><span>&#10084;</span><span>&#10084;</span><span>&#10084;</span><span>&#10084;</span><span>&#10084;</span><span>&#10084;</span>
+            </div>
+          </div>
+
+          <p id="dialogText" class="dialog-text"></p>
+
+          <div id="choices" class="choices">
+            <button id="acceptButton" type="button" class="choice">[Uzatma siteye gec]</button>
+            <button id="delayButton" type="button" class="choice alt">[Hayir biraz daha sursun]</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="finalPopup" class="final-popup hidden">
+        <div class="popup-card pixel-card">
+          <div class="popup-star">&#9733;</div>
+          <p class="popup-title">Gozlerin ne kadar guzel</p>
+          <p class="popup-text">Seni cok seviyorum. Iyi ki benimlesin.</p>
+          <button id="continueButton" type="button" class="pixel-button">Dünyamıza Git</button>
+          <button id="restartButton" type="button" class="choice popup-secondary">Bastan Oynat</button>
+        </div>
+      </div>
+
+      <button id="logoutButton" class="logout-button" type="button">Cikis Yap</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bizim Dunyamiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="memories">
+  <audio id="siteMusic" loop preload="metadata">
+    <source src="assets/site-music.mp4" type="audio/mp4">
+  </audio>
+  <button id="musicToggleButton" class="music-toggle" type="button">Muzigi Cal</button>
+  <main class="memories-page">
+    <section class="flower-intro romance-card">
+      <div class="flower-source-shell">
+        <iframe id="flowerFrame" class="flower-source-frame" src="flower-source.html" data-src="flower-source.html" loading="lazy" title="Cicek animasyonu"></iframe>
+      </div>
+      <div class="flower-copy">
+        <p class="hero-kicker">Senin İçin</p>
+        <h2>Açarken seni hatırlatan bir çiçek</h2>
+        <p class="hero-text">En az senin kadar güzel</p>
+      </div>
+    </section>
+
+    <section class="love-question romance-card">
+      <div>
+        <p class="hero-kicker">Minik Soru</p>
+        <h2>Beni seviyor musun?</h2>
+        <p class="hero-text">Dogru cevap belli ama biraz da eglence olsun.</p>
+      </div>
+      <div id="loveButtonsArea" class="love-buttons-area">
+        <button id="yesLoveButton" type="button" class="memory-button">Evet</button>
+        <button id="noLoveButton" type="button" class="memory-button runaway-button">Hayir</button>
+      </div>
+      <p id="loveQuestionResult" class="game-result">Butonlara dokun, bakalim neler olacak.</p>
+    </section>
+
+    <section class="hero-section romance-card">
+      <div>
+        <p class="hero-kicker">Bizim Sitemiz</p>
+        <h1>Seninle her şey daha guzel</h1>
+        <p class="hero-text">
+          Bu sayfayı bizim anılarımız, güldüğümüz anlar ve birlikte kuracağımız yeni
+          hikayeler icin hazırladım. Buradaki tüm yazi ve fotoğrafları sonra beraber
+          yeni anılarımızla değiştirebilir ve ekleyebiliriz bebiss.
+        </p>
+      </div>
+      <figure class="hero-photo-card">
+        <img src="assets/hero-photo.jpeg" alt="Sevgiline ait ozel fotograf" loading="lazy" decoding="async">
+      </figure>
+    </section>
+
+    <section class="gallery-section">
+      <div class="section-heading">
+        <p class="hero-kicker">Galeri</p>
+        <h2>Bu Hayattaki Kullandığım En İyi Şansım</h2>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card">
+          <img src="assets/couple-1.jpeg" alt="Birlikte cekildiginiz fotograf 1" loading="lazy" decoding="async">
+          <figcaption>Ayberki Beklemek...</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="assets/couple-2.jpeg" alt="Birlikte cekildiginiz fotograf 2" loading="lazy" decoding="async">
+          <figcaption>Yanımda olduğunda en sıradan an bile anıya dönüşüyor.</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="assets/couple-3.jpeg" alt="Birlikte cekildiginiz fotograf 3" loading="lazy" decoding="async">
+          <figcaption>Alanya Manzarası güzel ama benim favorim yine sensin.</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="assets/couple-4.jpeg" alt="Birlikte cekildiginiz fotograf 4" loading="lazy" decoding="async">
+          <figcaption>Küçük bir öpücük bile tüm günü güzelleştiriyor.</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="assets/couple-5.jpeg" alt="Birlikte cekildiginiz fotograf 5" loading="lazy" decoding="async">
+          <figcaption>En sevdigim karelerden biri: ikimiz....</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="assets/couple-6.jpeg" alt="Birlikte cekildiginiz fotograf 6" loading="lazy" decoding="async">
+          <figcaption>Bazen siyah beyaz bir kare bile sevgini rengarenk hissettiriyor.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="quotes-section romance-card">
+      <div class="section-heading">
+        <p class="hero-kicker">Guzel Sozler</p>
+        <h2>Sana Yazmak İstediklerim</h2>
+      </div>
+      <div class="quotes-grid">
+        <article>
+          <p>"Sen geldikten sonra hayatımın en güzel tesadüfü anlam kazandi."</p>
+        </article>
+        <article>
+          <p>"Birlikte sustugumuz anlar bile bana huzur veriyor."</p>
+        </article>
+        <article>
+          <p>"Gülümsememin en tatlı sebebi hep sen oldun."</p>
+        </article>
+        <article>
+          <p>"Kalbim bir yere aitse, o yer kesinlikle senin yanin."</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="neon-heart-section romance-card">
+      <div class="section-heading">
+        <p class="hero-kicker">DOKUN VE SİHRİNİ GÖSTER</p>
+        <h2>Bakalım ellerin de senin kadar sihirli mi</h2>
+      </div>
+      <p class="hero-text"> Basılı tutunca sihrin ortaya çıkacak.</p>
+      <div id="neonHeartStage" class="neon-heart-stage">
+        <canvas id="neonHeartCanvas" class="neon-heart-canvas" aria-label="Neon kalp parcacik animasyonu"></canvas>
+      </div>
+    </section>
+
+    <section class="mini-games">
+      <div class="section-heading">
+        <p class="hero-kicker">Mini Oyunlar</p>
+        <h2>Bizim İçin Küçük Sürprizler</h2>
+      </div>
+
+      <div class="mini-games-grid">
+        <article class="romance-card game-card">
+          <h3>Ask Ölçer</h3>
+          <p>Butona bas, bugünku aşk seviyemizi görelim.</p>
+          <button id="loveMeterButton" type="button" class="memory-button">Ölç</button>
+          <p id="loveMeterResult" class="game-result">Hazır bekliyor...</p>
+        </article>
+
+        <article class="romance-card game-card">
+          <h3>Günlük Mesaj</h3>
+          <p>Her tıklamada sana yeni bir minik not.</p>
+          <button id="noteButton" type="button" class="memory-button">Mesaj Getir</button>
+          <p id="noteResult" class="game-result">Bugünku notun burada belirecek.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="dice-section romance-card">
+      <div class="section-heading">
+        <p class="hero-kicker">Şans Zarı</p>
+        <h2>7 Gelirse Benimsin</h2>
+      </div>
+      <p class="hero-text">hadi bakalım</p>
+      <div class="dice-stage">
+        <div class="dice-scene">
+          <div id="diceDisplay" class="dice-display show-1" aria-live="polite" data-face="1">
+            <div class="dice-face face-front face-1">
+              <span class="pip front-one pos-5"></span>
+              <span class="pip front-seven pos-1"></span>
+              <span class="pip front-seven pos-3"></span>
+              <span class="pip front-seven pos-4"></span>
+              <span class="pip front-seven pos-5"></span>
+              <span class="pip front-seven pos-6"></span>
+              <span class="pip front-seven pos-7"></span>
+              <span class="pip front-seven pos-9"></span>
+            </div>
+            <div class="dice-face face-back face-6">
+              <span class="pip pos-1"></span><span class="pip pos-3"></span><span class="pip pos-4"></span>
+              <span class="pip pos-6"></span><span class="pip pos-7"></span><span class="pip pos-9"></span>
+            </div>
+            <div class="dice-face face-right face-3">
+              <span class="pip pos-1"></span><span class="pip pos-5"></span><span class="pip pos-9"></span>
+            </div>
+            <div class="dice-face face-left face-4">
+              <span class="pip pos-1"></span><span class="pip pos-3"></span><span class="pip pos-7"></span><span class="pip pos-9"></span>
+            </div>
+            <div class="dice-face face-top face-5">
+              <span class="pip pos-1"></span><span class="pip pos-3"></span><span class="pip pos-5"></span><span class="pip pos-7"></span><span class="pip pos-9"></span>
+            </div>
+            <div class="dice-face face-bottom face-2">
+              <span class="pip pos-1"></span><span class="pip pos-9"></span>
+            </div>
+          </div>
+        </div>
+        <button id="diceButton" type="button" class="memory-button">Zarı At</button>
+        <p id="diceResult" class="game-result">Belki bugun sans yine bize guler.</p>
+      </div>
+    </section>
+
+    <section class="puzzle-section romance-card">
+      <div class="section-heading">
+        <p class="hero-kicker">Puzzle</p>
+        <h2>Resmimizi Tamamla</h2>
+      </div>
+      <p class="puzzle-help">
+        Kutulara tıklayarak iki parçayi yer degiştir. Tüm parçalar dogru yerlere gelince oyunu kazanacaksın.
+      </p>
+      <div id="puzzleBoard" class="puzzle-board" aria-label="Fotograf puzzle alani"></div>
+      <div class="puzzle-actions">
+        <button id="shufflePuzzleButton" type="button" class="memory-button">Karistir</button>
+        <p id="puzzleStatus" class="game-result">Bir parçayı seç, sonra yer degiştirmek istediğin parçaya tıkla.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="puzzleCelebrate" class="celebrate-overlay hidden">
+    <div class="celebrate-card code-card">
+      <div class="code-screen">
+        <div id="loveCodeRain" class="code-rain" aria-hidden="true"></div>
+      </div>
+      <button id="closeCelebrateButton" type="button" class="memory-button">Devam Et</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
