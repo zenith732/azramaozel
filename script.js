@@ -128,10 +128,14 @@ function getFirebaseLogger() {
 }
 
 function buildVisitPayload(eventName) {
+  const now = new Date();
+
   return {
     event: eventName,
     page: document.body.dataset.page || "unknown",
-    enteredAt: new Date().toISOString(),
+    enteredAt: now.toISOString(),
+    localTime: now.toLocaleString("tr-TR"),
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
     userAgent: navigator.userAgent || "",
     language: navigator.language || "",
     domain: window.location.hostname || "",
