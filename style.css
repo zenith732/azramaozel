@@ -1,14 +1,14 @@
 :root {
-  --bg-main: #7abf5a;
-  --bg-deep: #5aa43d;
-  --dot: rgba(238, 255, 221, 0.5);
-  --panel: #f6e9cf;
-  --panel-shadow: #6d4c41;
-  --outline: #8f5b46;
-  --text: #3b2419;
-  --accent: #d74b58;
-  --accent-dark: #9f2239;
-  --gold: #efca69;
+  --bg-main: #f7a8c7;
+  --bg-deep: #df6f9d;
+  --dot: rgba(255, 235, 244, 0.58);
+  --panel: #fff0f5;
+  --panel-shadow: #9a5872;
+  --outline: #bb6e8f;
+  --text: #54293c;
+  --accent: #ff5f97;
+  --accent-dark: #c93f73;
+  --gold: #ffd37a;
   --pixel-font: "Courier New", Courier, monospace;
 }
 
@@ -67,13 +67,13 @@ body::after {
   top: 16px;
   right: 16px;
   z-index: 30;
-  border: 3px solid #5f3a2d;
-  background: #f9df8f;
+  border: 3px solid #8b4a69;
+  background: #ffd6e5;
   color: var(--text);
   font: inherit;
   padding: 10px 14px;
   cursor: pointer;
-  box-shadow: 5px 5px 0 #5f3a2d;
+  box-shadow: 5px 5px 0 #8b4a69;
 }
 
 .pixel-card {
@@ -190,7 +190,7 @@ input:focus {
 }
 
 .feedback.success {
-  color: #2f7b3e;
+  color: #b23367;
 }
 
 .story-screen {
@@ -208,7 +208,7 @@ input:focus {
   aspect-ratio: 1.2 / 1;
   display: grid;
   place-items: center;
-  background: #dff0ff;
+  background: #ffe2ef;
   position: relative;
 }
 
@@ -225,13 +225,13 @@ input:focus {
 
 .letter-box::before {
   border-width: 0 82px 52px 82px;
-  border-color: transparent transparent #c8e3fb transparent;
+  border-color: transparent transparent #ffcde1 transparent;
   top: 10px;
 }
 
 .letter-box::after {
   border-width: 52px 82px 0 82px;
-  border-color: #edf7ff transparent transparent transparent;
+  border-color: #fff1f7 transparent transparent transparent;
   bottom: 10px;
 }
 
@@ -332,15 +332,15 @@ input:focus {
   display: grid;
   place-items: center;
   padding: 20px;
-  background: rgba(42, 70, 25, 0.28);
+  background: rgba(111, 34, 72, 0.26);
 }
 
 .popup-card {
   width: min(100%, 460px);
   padding: 24px;
   text-align: center;
-  background: rgba(101, 156, 67, 0.9);
-  color: #fff8d8;
+  background: rgba(220, 109, 156, 0.92);
+  color: #fff5fb;
 }
 
 .popup-star {
