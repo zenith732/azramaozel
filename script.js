@@ -12,16 +12,16 @@ const FIREBASE_CONFIG = {
 };
 
 const retryLines = [
-  "Selam aşkım naber?\n5. Ay'ımıza Girdiğimiz İçin Çok Mutluyum\nBana 5 Ay Boyunca Katlandığın İçin Bu site Ödülün<3",
+  "Selam aşkım naber?\nDoğum Günün Kutlu Olsun\nSeninle geçen her an benim için bir hediye. İyi ki doğdun, iyi ki hayatımdasın.",
   "Tamam, hadi biraz heyecanlan...\nMutlu olduğunu görmek bu dünyadaki en güzel şey\nÇünkü ben seninle gulumseyebiliyorum.",
   "Seni çook seviyoruumm.\nBu oyunda da gerçekte de favorim sensin.",
-  "5.Ayımız Kutlu OLsun\nUmarım bu 5 ay değilde 5 yıl olur\nHadi ilerle bebisss"
+  "Hayat yolunda hep en güzel şeyler seni bulsun. Kalbin kadar güzel bir yıl olsun.\nVarlığın en büyük şansım… Doğum günün kutlu olsun.\nHadi ilerle bebisss"
 ];
 
 const loveMeterLines = [
   "%100 - Bugün de yarın da sonsuz aşk modundayız.",
-  "%99 - Bir sarılmayla tüm dunya güzelleşir seviyesi.",
-  "%97 - Kalbim yine direkt sana koşuyor.",
+  "%999 - Bir sarılmayla tüm dunya güzelleşir seviyesi.",
+  "%120 - Kalbim yine direkt sana koşuyor.",
   "%101 - Sistem seni görunce biraz şaşırdı ama haklı."
 ];
 
@@ -29,8 +29,8 @@ const sweetNotes = [
   "Seninle geçen kısa bir an bile tüm günüme yetiyor.",
   "Beni en güzel halime yaklaştıran şey senin sevgin.",
   "Birlikte yaşlanma fikri bile içimi huzurla dolduruyor.",
-  "Gülüşün, günümün en sevdigim bildirimi gibi.",
-  "Ne olursa olsun kalbimin yönü hep sana donuyor."
+  "Gülüşün, günümün en sevdiğim bildirimi gibi.",
+  "Ne olursa olsun kalbimin yönü hep sana dönuyor."
 ];
 
 const puzzleImage = "assets/puzzle-photo-small.jpg";
@@ -259,7 +259,7 @@ function rollLuckyDice() {
   diceTimers = [];
   diceRolling = true;
   diceButton.disabled = true;
-  diceResult.textContent = "Zar donuyor...";
+  diceResult.textContent = "Zar dönuyor...";
   diceDisplay.classList.remove("rolling");
   setDiceFace(1);
   void diceDisplay.offsetWidth;
@@ -696,8 +696,8 @@ function checkPuzzleSolved() {
       }
       return;
     }
-
-  puzzleStatus.textContent = "Guzel gidiyor. Biraz daha kaldi.";
+kaldi
+  puzzleStatus.textContent = "Gğzel gidiyor. Biraz daha kaldı.";
 }
 
 function moveNoButton() {
@@ -730,7 +730,7 @@ function updateMusicButton(isPlaying) {
     return;
   }
 
-  musicToggleButton.textContent = isPlaying ? "Muzigi Durdur" : "Muzigi Cal";
+  musicToggleButton.textContent = isPlaying ? "Müziği Durdur" : "Müziği Çal";
 }
 
 async function tryPlayMusic() {
@@ -888,15 +888,11 @@ if (document.body.dataset.page === "memories") {
   }
 
   if (noLoveButton) {
-    if (isSmallScreen()) {
-      noLoveButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        moveNoButton();
-      });
-    } else {
-      noLoveButton.addEventListener("mouseenter", moveNoButton);
-      noLoveButton.addEventListener("pointerdown", moveNoButton);
-    }
+    noLoveButton.style.display = "none";
+  }
+
+  if (loveQuestionResult) {
+    loveQuestionResult.textContent = "Biliyordum.";
   }
 
   if (shufflePuzzleButton) {
@@ -908,7 +904,7 @@ if (document.body.dataset.page === "memories") {
       }
       shufflePuzzle();
       renderPuzzle();
-      puzzleStatus.textContent = "Puzzle karistirildi. Haydi tamamlayalim.";
+      puzzleStatus.textContent = "Puzzle karıştırıldı. Haydi tamamlayalım.";
     });
   }
 
